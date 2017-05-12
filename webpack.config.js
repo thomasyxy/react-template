@@ -6,6 +6,7 @@ const glob = require('glob');
 
 const files = glob.sync(__dirname + '/src/pages/*/index.js');
 let newEntries = {};
+const PORT = 7999;
 
 files.forEach(function (file) {
     var name = /.*\/(src\/.*?\/index)\.js/.exec(file)[1]; //得到src/actEnter/这样的文件名
@@ -29,7 +30,7 @@ const config = {
         },
         contentBase: './',          //本地服务器所加载的页面所在的目录
         inline: false,              //设置为true，当源文件改变时会自动刷新页面
-        port: 8081,                 //设置默认监听端口，如果省略，默认为8080
+        port: PORT,                 //设置默认监听端口，如果省略，默认为8080
         historyApiFallback: false,  //在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
         colors: true,               //设置为true，使终端输出的文件为彩色的
         hot: true,                  //是否热部署
@@ -82,7 +83,7 @@ const config = {
         new webpack.DefinePlugin({
             __ONLINE__: isUseProxy       //是否使用代理(ps: isUseProxy=false, 调用本地mock接口)
         }),
-        new OpenBrowserPlugin({url: 'http://localhost:8081/demos'}), //打包完成后自动打开浏览器
+        new OpenBrowserPlugin({url: `http://127.0.0.1:${PORT}/views`}), //打包完成后自动打开浏览器
         new webpack.HotModuleReplacementPlugin(),           //热加载插件
         new webpack.NoErrorsPlugin()                        //允许错误不打断程序
     ]
