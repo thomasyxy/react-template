@@ -15,7 +15,7 @@ files.forEach(function (file) {
     plugins.push(
       new HtmlWebpackPlugin({                         //生成模板文件
           filename: path.resolve(__dirname, `./dist/${name}/index.html`),
-          template: path.resolve(__dirname, `./demos/${name}.html`),
+          template: path.resolve(__dirname, `./views/${name}.html`),
           // hash: true,    //为静态资源生成hash值
           minify: {    //压缩HTML文件
               removeComments: true,    //移除HTML中的注释
