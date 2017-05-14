@@ -12,19 +12,6 @@ files.forEach(function (file) {
     var name = /.*\/(src\/.*?\/index)\.js/.exec(file)[1]; //得到src/actEnter/这样的文件名
     name = name.split('src/pages/')[1].split('/index')[0];
     newEntries[name] = file;
-    plugins.push(
-      new HtmlWebpackPlugin({                         //生成模板文件
-          filename: path.resolve(__dirname, `./dist/${name}/index.html`),
-          template: path.resolve(__dirname, `./views/${name}.html`),
-          // hash: true,    //为静态资源生成hash值
-          minify: {    //压缩HTML文件
-              removeComments: true,    //移除HTML中的注释
-              collapseWhitespace: false    //删除空白符与换行符
-          },
-          inject: true,
-          chunks: [name]
-      })
-    )
 });
 
 const config = {
