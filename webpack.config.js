@@ -52,25 +52,25 @@ const config = {
 
   module: {
     loaders: [
-        {
-          test: /\.js[x]?$/,
-          exclude: /node_modules/,
-          loader: 'babel'
-        },
-        {
-          test: /\.css$/,
-          //loader: 'style!css?modules!postcss'
-          loader: 'style!css!postcss'
-        },
-        {
-          test: /\.scss$/,
-          //loader: 'style!css?modules!sass!postcss'
-          loader: 'style!css!sass!postcss'
-        },
-        {
-          test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-          loader: 'url-loader?limit=50000&name=[path][name].[ext]'
-        }
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        //loader: 'style!css?modules!postcss'
+        loader: 'style!css!postcss'
+      },
+      {
+        test: /\.scss$/,
+        //loader: 'style!css?modules!sass!postcss'
+        loader: 'style!css!sass!postcss'
+      },
+      {
+        test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+        loader: 'url-loader?limit=50000&name=[path][name].[ext]'
+      }
     ]
   },
   externals: {
